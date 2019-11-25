@@ -12,21 +12,11 @@
         "probes": [
             {
                 "type": "probe",
-                "name": "all-services-are-healthy",
-                "tolerance": true,
-                "provider": {
-                    "type": "python",
-                    "module": "chaosk8s.probes",
-                    "func": "all_microservices_healthy"
-                }
-            },
-            {
-                "type": "probe",
                 "name": "consumer-service-must-still-respond",
                 "tolerance": 200,
                 "provider": {
                     "type": "http",
-                    "url": "http://192.168.39.7:31546/hello"
+                    "url": "http://192.168.64.39:32568/hello"
                 }
             }
         ]
@@ -40,16 +30,20 @@
                 "module": "chaosk8s.pod.actions",
                 "func": "terminate_pods",
                 "arguments": {
-                    "label_selector": "app=my-provider-app"
+                    "label_selector": "name=my-provider-app",
+                    "rand": true,
+                    "ns": "default"
                 }
-            },
-            "pauses": {
-                "after": 15
             }
         },
         {
             "type": "probe",
-            "ref": "all-services-are-healthy"
+            "name": "consumer-service-must-still-respond",
+            "tolerance": 200,
+            "provider": {
+                "type": "http",
+                "url": "http://192.168.64.39:32568/hello"
+            }
         }
     ],
     "rollbacks": []

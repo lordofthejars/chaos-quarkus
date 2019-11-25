@@ -1,0 +1,168 @@
+{
+  "chaoslib-version": "1.7.1",
+  "platform": "Darwin-18.7.0-x86_64-i386-64bit",
+  "node": "Alexs-MacBook-Pro-3.local",
+  "experiment": {
+    "version": "1.0.0",
+    "title": "System is resilient to provider's failures",
+    "description": "Can our consumer survive gracefully a provider's failure?",
+    "tags": [
+      "service",
+      "kubernetes",
+      "quarkus"
+    ],
+    "steady-state-hypothesis": {
+      "title": "Services are all available and healthy",
+      "probes": [
+        {
+          "type": "probe",
+          "name": "consumer-service-must-still-respond",
+          "tolerance": 200,
+          "provider": {
+            "type": "http",
+            "url": "http://192.168.64.39:32568/hello"
+          }
+        }
+      ]
+    },
+    "method": [
+      {
+        "type": "action",
+        "name": "terminate-pods",
+        "provider": {
+          "type": "python",
+          "module": "chaosk8s.pod.actions",
+          "func": "terminate_pods",
+          "arguments": {
+            "label_selector": "name=my-provider-app",
+            "rand": true,
+            "ns": "default"
+          }
+        }
+      },
+      {
+        "type": "probe",
+        "name": "consumer-service-must-still-respond",
+        "tolerance": 200,
+        "provider": {
+          "type": "http",
+          "url": "http://192.168.64.39:32568/hello"
+        }
+      }
+    ],
+    "rollbacks": [],
+    "dry": false
+  },
+  "start": "2019-11-25T16:13:38.221634",
+  "status": "failed",
+  "deviated": true,
+  "steady_states": {
+    "before": {
+      "steady_state_met": true,
+      "probes": [
+        {
+          "activity": {
+            "type": "probe",
+            "name": "consumer-service-must-still-respond",
+            "tolerance": 200,
+            "provider": {
+              "type": "http",
+              "url": "http://192.168.64.39:32568/hello"
+            }
+          },
+          "output": {
+            "status": 200,
+            "headers": {
+              "Content-Length": "5",
+              "Content-Type": "text/plain;charset=UTF-8"
+            },
+            "body": "hello"
+          },
+          "status": "succeeded",
+          "start": "2019-11-25T16:13:38.222398",
+          "end": "2019-11-25T16:13:38.229177",
+          "duration": 0.006779,
+          "tolerance_met": true
+        }
+      ]
+    },
+    "after": {
+      "steady_state_met": false,
+      "probes": [
+        {
+          "activity": {
+            "type": "probe",
+            "name": "consumer-service-must-still-respond",
+            "tolerance": 200,
+            "provider": {
+              "type": "http",
+              "url": "http://192.168.64.39:32568/hello"
+            }
+          },
+          "output": {
+            "status": 500,
+            "headers": {
+              "content-type": "text/html; charset=utf-8",
+              "content-length": "2954"
+            },
+            "body": "<!doctype html>\n<html lang=\"en\">\n<head>\n    <title>Internal Server Error - Error id 66b40569-038a-4e6a-895d-8c68727443e7-2</title>\n    <meta charset=\"utf-8\">\n    <style>\nhtml, body {\n    margin: 0;\n    padding: 0;\n    font-family: 'Open Sans', Helvetica, Arial, sans-serif;\n    font-size: 100%;\n    font-weight: 100;\n    line-height: 1.4;\n}\n\nhtml {\n    overflow-y: scroll;\n}\n\nbody {\n    background: #f9f9f9;\n}\n.container {\n    width: 80%;\n    margin: 0 auto;\n}\n.content {\n    padding: 1em 0 1em 0;\n}\n\nheader, .component-name {\n    background-color: #ad1c1c;\n}\n\nul {\n    line-height: 1.5rem;\n    margin: 0.25em 0 0.25em 0;\n}\n\n.exception-message {\n    background: #be2828;\n}\n\nh1, h2 {\n    margin: 0;\n    padding: 0;\n}\n\nh1 {\n    font-size: 2rem;\n    color: #fff;\n    line-height: 3.75rem;\n    font-weight: 700;\n    padding: 0.4rem 0rem 0.4rem 0rem;\n}\n\nh2 {\n    font-size: 1.2rem;\n    color: rgba(255, 255, 255, 0.85);\n    line-height: 2.5rem;\n    font-weight: 400;\n    padding: 0.4rem 0rem 0.4rem 0rem;\n}\n\n.intro {    font-size: 1.2rem;\n    font-weight: 400;\n    margin: 0.25em 0 1em 0;\n}\nh3 {\n    font-size: 1.2rem;\n    line-height: 2.5rem;\n    font-weight: 400;\n    color: #555;\n    margin: 0.25em 0 0.25em 0;\n}\n\n.trace, .resources {\n    background: #fff;\n    padding: 15px;\n    margin: 15px auto;\n    border: 1px solid #ececec;\n}\n.trace {\n    overflow-y: scroll;\n}\n.hidden {\n   display: none;\n}\n\npre {\n    white-space: pre;\n    font-family: Consolas, Monaco, Menlo, \"Ubuntu Mono\", \"Liberation Mono\", monospace;\n    font-size: 12px;\n    line-height: 1.5;\n    color: #555;\n}\n</style>\n<script>\n\tfunction toggleStackTraceOrder() {\n\t\tvar stElement = document.getElementById('stacktrace');\n\t\tvar current = stElement.getAttribute('data-current-setting');\n\t\tif (current == 'original-stacktrace') {\n\t\t\tvar reverseOrder = document.getElementById('reversed-stacktrace');\n\t\t\tstElement.innerHTML = reverseOrder.innerHTML;\n\t\t\tstElement.setAttribute('data-current-setting', 'reversed-stacktrace');\n\t\t} else {\n\t\t\tvar originalOrder = document.getElementById('original-stacktrace');\n\t\t\tstElement.innerHTML = originalOrder.innerHTML;\n\t\t\tstElement.setAttribute('data-current-setting', 'original-stacktrace');\n\t\t}\n\t\treturn;\n\t}\n\tfunction showDefaultStackTraceOrder() {\n\t\tvar reverseOrder = document.getElementById('reversed-stacktrace');\n\t\tvar stElement = document.getElementById('stacktrace');\n       if (reverseOrder == null || stElement == null) {\n           return;\n       }\n\t\t// default to reverse ordered stacktrace\n\t\tstElement.innerHTML = reverseOrder.innerHTML;\n\t\tstElement.setAttribute('data-current-setting', 'reversed-stacktrace');\n\t\treturn;\n\t}\n</script>\n</head>\n<body  onload=\"showDefaultStackTraceOrder()\">\n<header>\n    <h1 class=\"container\">Internal Server Error</h1>\n    <div class=\"exception-message\">\n        <h2 class=\"container\">Error id 66b40569-038a-4e6a-895d-8c68727443e7-2</h2>\n    </div>\n</header>\n<div class=\"container content\">\n</div></body>\n</html>\n"
+          },
+          "status": "succeeded",
+          "start": "2019-11-25T16:13:38.578883",
+          "end": "2019-11-25T16:13:38.644175",
+          "duration": 0.065292,
+          "tolerance_met": false
+        }
+      ]
+    }
+  },
+  "run": [
+    {
+      "activity": {
+        "type": "action",
+        "name": "terminate-pods",
+        "provider": {
+          "type": "python",
+          "module": "chaosk8s.pod.actions",
+          "func": "terminate_pods",
+          "arguments": {
+            "label_selector": "name=my-provider-app",
+            "rand": true,
+            "ns": "default"
+          }
+        }
+      },
+      "output": null,
+      "status": "succeeded",
+      "start": "2019-11-25T16:13:38.229709",
+      "end": "2019-11-25T16:13:38.569434",
+      "duration": 0.339725
+    },
+    {
+      "activity": {
+        "type": "probe",
+        "name": "consumer-service-must-still-respond",
+        "tolerance": 200,
+        "provider": {
+          "type": "http",
+          "url": "http://192.168.64.39:32568/hello"
+        }
+      },
+      "output": {
+        "status": 200,
+        "headers": {
+          "Content-Length": "5",
+          "Content-Type": "text/plain;charset=UTF-8"
+        },
+        "body": "hello"
+      },
+      "status": "succeeded",
+      "start": "2019-11-25T16:13:38.569775",
+      "end": "2019-11-25T16:13:38.578461",
+      "duration": 0.008686
+    }
+  ],
+  "rollbacks": [],
+  "end": "2019-11-25T16:13:38.645112",
+  "duration": 0.4296908378601074
+}

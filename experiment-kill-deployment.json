@@ -26,7 +26,7 @@
                 "tolerance": 200,
                 "provider": {
                     "type": "http",
-                    "url": "http://192.168.39.7:31546/hello"
+                    "url": "http://192.168.64.39:32568/hello"
                 }
             }
         ]
@@ -36,11 +36,12 @@
             "type": "action",
             "name": "stop-provider-service",
             "provider": {
-                "type": "python",
-                "module": "chaosk8s.actions",
-                "func": "kill_microservice",
+                "type": "process",
+                "path": "kubectl",
+                "timeout": 60,
                 "arguments": {
-                    "name": "my-provider-app"
+                    "delete": "",
+                    "-f": "provider-deployment.json"
                 }
             },
             "pauses": {
@@ -52,5 +53,19 @@
             "ref": "all-services-are-healthy"
         }
     ],
-    "rollbacks": []
+    "rollbacks": [
+        {
+            "type": "action",
+            "name": "redeploy-service",
+            "provider": {
+                "type": "process",
+                "path": "kubectl",
+                "timeout": 60,
+                "arguments": {
+                    "create": "",
+                    "-f": "provider-deployment.json"
+                }
+            }
+        }
+    ]
 }

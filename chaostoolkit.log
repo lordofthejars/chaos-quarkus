@@ -1,0 +1,570 @@
+[36m[2019-11-25 17:05:03 DEBUG] [cli:70][39m ###############################################################################
+[36m[2019-11-25 17:05:03 DEBUG] [cli:71][39m Running command 'run'
+[36m[2019-11-25 17:05:03 DEBUG] [cli:75][39m Using settings file '/Users/asotobu/.chaostoolkit/settings.yaml'
+[36m[2019-11-25 17:05:03 DEBUG] [settings:24][39m The Chaos Toolkit settings file could not be found at '/Users/asotobu/.chaostoolkit/settings.yaml'.
+[36m[2019-11-25 17:05:03 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2019-11-25 17:05:03 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2019-11-25 17:05:03 DEBUG] [caching:25][39m Building activity cache...
+[36m[2019-11-25 17:05:03 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2019-11-25 17:05:03 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2019-11-25 17:05:03 DEBUG] [configuration:36][39m Loading configuration...
+[36m[2019-11-25 17:05:03 DEBUG] [secret:74][39m Loading secrets...
+[36m[2019-11-25 17:05:03 DEBUG] [secret:89][39m Secrets loaded
+[32m[2019-11-25 17:05:04 INFO] [experiment:100][39m Experiment looks valid
+[36m[2019-11-25 17:05:04 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2019-11-25 17:05:04 DEBUG] [caching:25][39m Building activity cache...
+[36m[2019-11-25 17:05:04 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2019-11-25 17:05:04 INFO] [experiment:179][39m Running experiment: System is resilient to provider's failures
+[36m[2019-11-25 17:05:04 DEBUG] [configuration:36][39m Loading configuration...
+[36m[2019-11-25 17:05:04 DEBUG] [secret:74][39m Loading secrets...
+[36m[2019-11-25 17:05:04 DEBUG] [secret:89][39m Secrets loaded
+[36m[2019-11-25 17:05:04 DEBUG] [__init__:39][39m Initializing controls
+[36m[2019-11-25 17:05:04 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2019-11-25 17:05:04 INFO] [hypothesis:184][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-11-25 17:05:04 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2019-11-25 17:05:04 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:05:04 INFO] [activity:158][39m Probe: all-services-are-healthy
+[36m[2019-11-25 17:05:04 DEBUG] [python:36][39m Activity 'all-services-are-healthy' loaded from '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py'
+[36m[2019-11-25 17:05:04 DEBUG] [__init__:69][39m Using Kubernetes context: default
+[36m[2019-11-25 17:05:04 DEBUG] [probes:41][39m Found 0 failed and 0 not ready pods
+[36m[2019-11-25 17:05:04 DEBUG] [activity:176][39m   => succeeded with 'True'
+[36m[2019-11-25 17:05:04 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:05:04 DEBUG] [hypothesis:212][39m allowed tolerance is True
+[36m[2019-11-25 17:05:04 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:05:04 INFO] [activity:158][39m Probe: consumer-service-must-still-respond
+[36m[2019-11-25 17:05:04 DEBUG] [activity:176][39m   => succeeded with '{'status': 200, 'headers': {'Content-Length': '5', 'Content-Type': 'text/plain;charset=UTF-8'}, 'body': 'hello'}'
+[36m[2019-11-25 17:05:04 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:05:04 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2019-11-25 17:05:04 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2019-11-25 17:05:04 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2019-11-25 17:05:04 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[36m[2019-11-25 17:05:04 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:05:04 INFO] [activity:158][39m Action: terminate-pods
+[36m[2019-11-25 17:05:04 DEBUG] [python:36][39m Activity 'terminate-pods' loaded from '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/pod/actions.py'
+[36m[2019-11-25 17:05:04 DEBUG] [__init__:69][39m Using Kubernetes context: default
+[36m[2019-11-25 17:05:04 DEBUG] [actions:67][39m Found 1 pods labelled 'name=my-provider-app' in ns default
+[36m[2019-11-25 17:05:04 DEBUG] [actions:99][39m Picked pods 'my-provider-app-6b44dd9899-gq66j' to be terminated
+[36m[2019-11-25 17:05:04 DEBUG] [activity:178][39m   => succeeded without any result value
+[36m[2019-11-25 17:05:04 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:05:04 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:05:04 INFO] [activity:158][39m Probe: all-services-are-healthy
+[36m[2019-11-25 17:05:04 DEBUG] [python:36][39m Activity 'all-services-are-healthy' loaded from '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py'
+[36m[2019-11-25 17:05:04 DEBUG] [__init__:69][39m Using Kubernetes context: default
+[36m[2019-11-25 17:05:05 DEBUG] [probes:41][39m Found 0 failed and 1 not ready pods
+[36m[2019-11-25 17:05:05 DEBUG] [activity:230][39m Activity failed
+    Traceback (most recent call last):
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py", line 45, in all_microservices_healthy
+        raise ActivityFailed("the system is unhealthy")
+    chaoslib.exceptions.ActivityFailed: the system is unhealthy
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/activity.py", line 223, in run_activity
+        result = run_python_activity(activity, configuration, secrets)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 60, in run_python_activity
+        sys.exc_info()[2])
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py", line 45, in all_microservices_healthy
+        raise ActivityFailed("the system is unhealthy")
+    chaoslib.exceptions.ActivityFailed: chaoslib.exceptions.ActivityFailed: the system is unhealthy
+[31m[2019-11-25 17:05:05 ERROR] [activity:184][39m   => failed: chaoslib.exceptions.ActivityFailed: the system is unhealthy
+[36m[2019-11-25 17:05:05 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:05:05 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[32m[2019-11-25 17:05:05 INFO] [hypothesis:184][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-11-25 17:05:05 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2019-11-25 17:05:05 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:05:05 INFO] [activity:158][39m Probe: all-services-are-healthy
+[36m[2019-11-25 17:05:05 DEBUG] [python:36][39m Activity 'all-services-are-healthy' loaded from '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py'
+[36m[2019-11-25 17:05:05 DEBUG] [__init__:69][39m Using Kubernetes context: default
+[36m[2019-11-25 17:05:05 DEBUG] [probes:41][39m Found 0 failed and 1 not ready pods
+[36m[2019-11-25 17:05:05 DEBUG] [activity:230][39m Activity failed
+    Traceback (most recent call last):
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py", line 45, in all_microservices_healthy
+        raise ActivityFailed("the system is unhealthy")
+    chaoslib.exceptions.ActivityFailed: the system is unhealthy
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/activity.py", line 223, in run_activity
+        result = run_python_activity(activity, configuration, secrets)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 60, in run_python_activity
+        sys.exc_info()[2])
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py", line 45, in all_microservices_healthy
+        raise ActivityFailed("the system is unhealthy")
+    chaoslib.exceptions.ActivityFailed: chaoslib.exceptions.ActivityFailed: the system is unhealthy
+[31m[2019-11-25 17:05:05 ERROR] [activity:184][39m   => failed: chaoslib.exceptions.ActivityFailed: the system is unhealthy
+[36m[2019-11-25 17:05:05 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[33m[2019-11-25 17:05:05 WARNING] [hypothesis:201][39m Probe terminated unexpectedly, so its tolerance could not be validated
+[36m[2019-11-25 17:05:05 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[2019-11-25 17:05:05 CRITICAL] [experiment:241] Steady state probe 'all-services-are-healthy' is not in the given tolerance so failing this experiment
+[32m[2019-11-25 17:05:05 INFO] [experiment:320][39m Let's rollback...
+[36m[2019-11-25 17:05:05 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2019-11-25 17:05:05 INFO] [rollback:25][39m No declared rollbacks, let's move on.
+[36m[2019-11-25 17:05:05 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2019-11-25 17:05:05 INFO] [experiment:270][39m Experiment ended with status: deviated
+[32m[2019-11-25 17:05:05 INFO] [experiment:274][39m The steady-state has deviated, a weakness may have been discovered
+[36m[2019-11-25 17:05:05 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2019-11-25 17:05:05 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2019-11-25 17:05:05 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2019-11-25 17:05:43 DEBUG] [cli:70][39m ###############################################################################
+[36m[2019-11-25 17:05:43 DEBUG] [cli:71][39m Running command 'run'
+[36m[2019-11-25 17:05:43 DEBUG] [cli:75][39m Using settings file '/Users/asotobu/.chaostoolkit/settings.yaml'
+[36m[2019-11-25 17:05:43 DEBUG] [settings:24][39m The Chaos Toolkit settings file could not be found at '/Users/asotobu/.chaostoolkit/settings.yaml'.
+[36m[2019-11-25 17:05:43 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2019-11-25 17:05:43 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2019-11-25 17:05:43 DEBUG] [caching:25][39m Building activity cache...
+[36m[2019-11-25 17:05:43 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2019-11-25 17:05:43 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2019-11-25 17:05:43 DEBUG] [configuration:36][39m Loading configuration...
+[36m[2019-11-25 17:05:43 DEBUG] [secret:74][39m Loading secrets...
+[36m[2019-11-25 17:05:43 DEBUG] [secret:89][39m Secrets loaded
+[32m[2019-11-25 17:05:44 INFO] [experiment:100][39m Experiment looks valid
+[36m[2019-11-25 17:05:44 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2019-11-25 17:05:44 DEBUG] [caching:25][39m Building activity cache...
+[36m[2019-11-25 17:05:44 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2019-11-25 17:05:44 INFO] [experiment:179][39m Running experiment: System is resilient to provider's failures
+[36m[2019-11-25 17:05:44 DEBUG] [configuration:36][39m Loading configuration...
+[36m[2019-11-25 17:05:44 DEBUG] [secret:74][39m Loading secrets...
+[36m[2019-11-25 17:05:44 DEBUG] [secret:89][39m Secrets loaded
+[36m[2019-11-25 17:05:44 DEBUG] [__init__:39][39m Initializing controls
+[36m[2019-11-25 17:05:44 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2019-11-25 17:05:44 INFO] [hypothesis:184][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-11-25 17:05:44 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2019-11-25 17:05:44 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:05:44 INFO] [activity:158][39m Probe: all-services-are-healthy
+[36m[2019-11-25 17:05:44 DEBUG] [python:36][39m Activity 'all-services-are-healthy' loaded from '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py'
+[36m[2019-11-25 17:05:44 DEBUG] [__init__:69][39m Using Kubernetes context: default
+[36m[2019-11-25 17:05:44 DEBUG] [probes:41][39m Found 0 failed and 0 not ready pods
+[36m[2019-11-25 17:05:44 DEBUG] [activity:176][39m   => succeeded with 'True'
+[36m[2019-11-25 17:05:44 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:05:44 DEBUG] [hypothesis:212][39m allowed tolerance is True
+[36m[2019-11-25 17:05:44 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:05:44 INFO] [activity:158][39m Probe: consumer-service-must-still-respond
+[36m[2019-11-25 17:05:44 DEBUG] [activity:176][39m   => succeeded with '{'status': 200, 'headers': {'Content-Length': '5', 'Content-Type': 'text/plain;charset=UTF-8'}, 'body': 'hello'}'
+[36m[2019-11-25 17:05:44 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:05:44 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2019-11-25 17:05:44 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2019-11-25 17:05:44 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2019-11-25 17:05:44 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[36m[2019-11-25 17:05:44 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:05:44 INFO] [activity:158][39m Action: terminate-pods
+[36m[2019-11-25 17:05:44 DEBUG] [python:36][39m Activity 'terminate-pods' loaded from '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/pod/actions.py'
+[36m[2019-11-25 17:05:44 DEBUG] [__init__:69][39m Using Kubernetes context: default
+[36m[2019-11-25 17:05:44 DEBUG] [actions:67][39m Found 1 pods labelled 'name=my-provider-app' in ns default
+[36m[2019-11-25 17:05:44 DEBUG] [actions:99][39m Picked pods 'my-provider-app-6b44dd9899-tgzf4' to be terminated
+[36m[2019-11-25 17:05:44 DEBUG] [activity:178][39m   => succeeded without any result value
+[36m[2019-11-25 17:05:44 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:05:44 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:05:44 INFO] [activity:158][39m Probe: all-services-are-healthy
+[36m[2019-11-25 17:05:44 DEBUG] [python:36][39m Activity 'all-services-are-healthy' loaded from '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py'
+[36m[2019-11-25 17:05:44 DEBUG] [__init__:69][39m Using Kubernetes context: default
+[36m[2019-11-25 17:05:45 DEBUG] [probes:41][39m Found 0 failed and 1 not ready pods
+[36m[2019-11-25 17:05:45 DEBUG] [activity:230][39m Activity failed
+    Traceback (most recent call last):
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py", line 45, in all_microservices_healthy
+        raise ActivityFailed("the system is unhealthy")
+    chaoslib.exceptions.ActivityFailed: the system is unhealthy
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/activity.py", line 223, in run_activity
+        result = run_python_activity(activity, configuration, secrets)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 60, in run_python_activity
+        sys.exc_info()[2])
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py", line 45, in all_microservices_healthy
+        raise ActivityFailed("the system is unhealthy")
+    chaoslib.exceptions.ActivityFailed: chaoslib.exceptions.ActivityFailed: the system is unhealthy
+[31m[2019-11-25 17:05:45 ERROR] [activity:184][39m   => failed: chaoslib.exceptions.ActivityFailed: the system is unhealthy
+[36m[2019-11-25 17:05:45 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:05:45 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[32m[2019-11-25 17:05:45 INFO] [hypothesis:184][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-11-25 17:05:45 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2019-11-25 17:05:45 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:05:45 INFO] [activity:158][39m Probe: all-services-are-healthy
+[36m[2019-11-25 17:05:45 DEBUG] [python:36][39m Activity 'all-services-are-healthy' loaded from '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py'
+[36m[2019-11-25 17:05:45 DEBUG] [__init__:69][39m Using Kubernetes context: default
+[36m[2019-11-25 17:05:45 DEBUG] [probes:41][39m Found 0 failed and 1 not ready pods
+[36m[2019-11-25 17:05:45 DEBUG] [activity:230][39m Activity failed
+    Traceback (most recent call last):
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py", line 45, in all_microservices_healthy
+        raise ActivityFailed("the system is unhealthy")
+    chaoslib.exceptions.ActivityFailed: the system is unhealthy
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/activity.py", line 223, in run_activity
+        result = run_python_activity(activity, configuration, secrets)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 60, in run_python_activity
+        sys.exc_info()[2])
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py", line 45, in all_microservices_healthy
+        raise ActivityFailed("the system is unhealthy")
+    chaoslib.exceptions.ActivityFailed: chaoslib.exceptions.ActivityFailed: the system is unhealthy
+[31m[2019-11-25 17:05:45 ERROR] [activity:184][39m   => failed: chaoslib.exceptions.ActivityFailed: the system is unhealthy
+[36m[2019-11-25 17:05:45 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[33m[2019-11-25 17:05:45 WARNING] [hypothesis:201][39m Probe terminated unexpectedly, so its tolerance could not be validated
+[36m[2019-11-25 17:05:45 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[2019-11-25 17:05:45 CRITICAL] [experiment:241] Steady state probe 'all-services-are-healthy' is not in the given tolerance so failing this experiment
+[32m[2019-11-25 17:05:45 INFO] [experiment:320][39m Let's rollback...
+[36m[2019-11-25 17:05:45 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2019-11-25 17:05:45 INFO] [rollback:25][39m No declared rollbacks, let's move on.
+[36m[2019-11-25 17:05:45 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2019-11-25 17:05:45 INFO] [experiment:270][39m Experiment ended with status: deviated
+[32m[2019-11-25 17:05:45 INFO] [experiment:274][39m The steady-state has deviated, a weakness may have been discovered
+[36m[2019-11-25 17:05:45 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2019-11-25 17:05:45 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2019-11-25 17:05:45 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2019-11-25 17:09:33 DEBUG] [cli:70][39m ###############################################################################
+[36m[2019-11-25 17:09:33 DEBUG] [cli:71][39m Running command 'run'
+[36m[2019-11-25 17:09:33 DEBUG] [cli:75][39m Using settings file '/Users/asotobu/.chaostoolkit/settings.yaml'
+[36m[2019-11-25 17:09:34 DEBUG] [settings:24][39m The Chaos Toolkit settings file could not be found at '/Users/asotobu/.chaostoolkit/settings.yaml'.
+[36m[2019-11-25 17:09:34 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2019-11-25 17:09:34 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2019-11-25 17:09:34 DEBUG] [caching:25][39m Building activity cache...
+[36m[2019-11-25 17:09:34 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2019-11-25 17:09:34 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2019-11-25 17:09:34 DEBUG] [configuration:36][39m Loading configuration...
+[36m[2019-11-25 17:09:34 DEBUG] [secret:74][39m Loading secrets...
+[36m[2019-11-25 17:09:34 DEBUG] [secret:89][39m Secrets loaded
+[32m[2019-11-25 17:09:34 INFO] [experiment:100][39m Experiment looks valid
+[36m[2019-11-25 17:09:34 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2019-11-25 17:09:34 DEBUG] [caching:25][39m Building activity cache...
+[36m[2019-11-25 17:09:34 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2019-11-25 17:09:34 INFO] [experiment:179][39m Running experiment: System is resilient to provider's failures
+[36m[2019-11-25 17:09:34 DEBUG] [configuration:36][39m Loading configuration...
+[36m[2019-11-25 17:09:34 DEBUG] [secret:74][39m Loading secrets...
+[36m[2019-11-25 17:09:34 DEBUG] [secret:89][39m Secrets loaded
+[36m[2019-11-25 17:09:34 DEBUG] [__init__:39][39m Initializing controls
+[36m[2019-11-25 17:09:34 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2019-11-25 17:09:34 INFO] [hypothesis:184][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-11-25 17:09:34 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2019-11-25 17:09:34 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:09:34 INFO] [activity:158][39m Probe: all-services-are-healthy
+[36m[2019-11-25 17:09:34 DEBUG] [python:36][39m Activity 'all-services-are-healthy' loaded from '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py'
+[36m[2019-11-25 17:09:34 DEBUG] [__init__:69][39m Using Kubernetes context: default
+[36m[2019-11-25 17:09:35 DEBUG] [probes:41][39m Found 0 failed and 0 not ready pods
+[36m[2019-11-25 17:09:35 DEBUG] [activity:176][39m   => succeeded with 'True'
+[36m[2019-11-25 17:09:35 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:09:35 DEBUG] [hypothesis:212][39m allowed tolerance is True
+[36m[2019-11-25 17:09:35 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:09:35 INFO] [activity:158][39m Probe: consumer-service-must-still-respond
+[36m[2019-11-25 17:09:35 DEBUG] [activity:176][39m   => succeeded with '{'status': 200, 'headers': {'Content-Length': '5', 'Content-Type': 'text/plain;charset=UTF-8'}, 'body': 'hello'}'
+[36m[2019-11-25 17:09:35 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:09:35 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2019-11-25 17:09:35 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2019-11-25 17:09:35 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2019-11-25 17:09:35 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[36m[2019-11-25 17:09:35 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:09:35 INFO] [activity:158][39m Action: terminate-pods
+[36m[2019-11-25 17:09:35 DEBUG] [python:36][39m Activity 'terminate-pods' loaded from '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/pod/actions.py'
+[36m[2019-11-25 17:09:35 DEBUG] [__init__:69][39m Using Kubernetes context: default
+[36m[2019-11-25 17:09:35 DEBUG] [actions:67][39m Found 2 pods labelled 'name=my-provider-app' in ns default
+[36m[2019-11-25 17:09:35 DEBUG] [actions:99][39m Picked pods 'my-provider-app-6b44dd9899-tr28j' to be terminated
+[36m[2019-11-25 17:09:35 DEBUG] [activity:178][39m   => succeeded without any result value
+[36m[2019-11-25 17:09:35 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:09:35 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:09:35 INFO] [activity:158][39m Probe: all-services-are-healthy
+[36m[2019-11-25 17:09:35 DEBUG] [python:36][39m Activity 'all-services-are-healthy' loaded from '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py'
+[36m[2019-11-25 17:09:35 DEBUG] [__init__:69][39m Using Kubernetes context: default
+[36m[2019-11-25 17:09:35 DEBUG] [probes:41][39m Found 0 failed and 1 not ready pods
+[36m[2019-11-25 17:09:35 DEBUG] [activity:230][39m Activity failed
+    Traceback (most recent call last):
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py", line 45, in all_microservices_healthy
+        raise ActivityFailed("the system is unhealthy")
+    chaoslib.exceptions.ActivityFailed: the system is unhealthy
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/activity.py", line 223, in run_activity
+        result = run_python_activity(activity, configuration, secrets)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 60, in run_python_activity
+        sys.exc_info()[2])
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py", line 45, in all_microservices_healthy
+        raise ActivityFailed("the system is unhealthy")
+    chaoslib.exceptions.ActivityFailed: chaoslib.exceptions.ActivityFailed: the system is unhealthy
+[31m[2019-11-25 17:09:35 ERROR] [activity:184][39m   => failed: chaoslib.exceptions.ActivityFailed: the system is unhealthy
+[36m[2019-11-25 17:09:35 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:09:35 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[32m[2019-11-25 17:09:35 INFO] [hypothesis:184][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-11-25 17:09:35 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2019-11-25 17:09:35 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:09:35 INFO] [activity:158][39m Probe: all-services-are-healthy
+[36m[2019-11-25 17:09:35 DEBUG] [python:36][39m Activity 'all-services-are-healthy' loaded from '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py'
+[36m[2019-11-25 17:09:35 DEBUG] [__init__:69][39m Using Kubernetes context: default
+[36m[2019-11-25 17:09:36 DEBUG] [probes:41][39m Found 0 failed and 1 not ready pods
+[36m[2019-11-25 17:09:36 DEBUG] [activity:230][39m Activity failed
+    Traceback (most recent call last):
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py", line 45, in all_microservices_healthy
+        raise ActivityFailed("the system is unhealthy")
+    chaoslib.exceptions.ActivityFailed: the system is unhealthy
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/activity.py", line 223, in run_activity
+        result = run_python_activity(activity, configuration, secrets)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 60, in run_python_activity
+        sys.exc_info()[2])
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py", line 45, in all_microservices_healthy
+        raise ActivityFailed("the system is unhealthy")
+    chaoslib.exceptions.ActivityFailed: chaoslib.exceptions.ActivityFailed: the system is unhealthy
+[31m[2019-11-25 17:09:36 ERROR] [activity:184][39m   => failed: chaoslib.exceptions.ActivityFailed: the system is unhealthy
+[36m[2019-11-25 17:09:36 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[33m[2019-11-25 17:09:36 WARNING] [hypothesis:201][39m Probe terminated unexpectedly, so its tolerance could not be validated
+[36m[2019-11-25 17:09:36 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[2019-11-25 17:09:36 CRITICAL] [experiment:241] Steady state probe 'all-services-are-healthy' is not in the given tolerance so failing this experiment
+[32m[2019-11-25 17:09:36 INFO] [experiment:320][39m Let's rollback...
+[36m[2019-11-25 17:09:36 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2019-11-25 17:09:36 INFO] [rollback:25][39m No declared rollbacks, let's move on.
+[36m[2019-11-25 17:09:36 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2019-11-25 17:09:36 INFO] [experiment:270][39m Experiment ended with status: deviated
+[32m[2019-11-25 17:09:36 INFO] [experiment:274][39m The steady-state has deviated, a weakness may have been discovered
+[36m[2019-11-25 17:09:36 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2019-11-25 17:09:36 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2019-11-25 17:09:36 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2019-11-25 17:11:23 DEBUG] [cli:70][39m ###############################################################################
+[36m[2019-11-25 17:11:23 DEBUG] [cli:71][39m Running command 'run'
+[36m[2019-11-25 17:11:23 DEBUG] [cli:75][39m Using settings file '/Users/asotobu/.chaostoolkit/settings.yaml'
+[36m[2019-11-25 17:11:24 DEBUG] [settings:24][39m The Chaos Toolkit settings file could not be found at '/Users/asotobu/.chaostoolkit/settings.yaml'.
+[36m[2019-11-25 17:11:24 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2019-11-25 17:11:24 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2019-11-25 17:11:24 DEBUG] [caching:25][39m Building activity cache...
+[36m[2019-11-25 17:11:24 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2019-11-25 17:11:24 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2019-11-25 17:11:24 DEBUG] [configuration:36][39m Loading configuration...
+[36m[2019-11-25 17:11:24 DEBUG] [secret:74][39m Loading secrets...
+[36m[2019-11-25 17:11:24 DEBUG] [secret:89][39m Secrets loaded
+[32m[2019-11-25 17:11:24 INFO] [experiment:100][39m Experiment looks valid
+[36m[2019-11-25 17:11:24 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2019-11-25 17:11:24 DEBUG] [caching:25][39m Building activity cache...
+[36m[2019-11-25 17:11:24 DEBUG] [caching:35][39m Cached 3 activities
+[32m[2019-11-25 17:11:24 INFO] [experiment:179][39m Running experiment: System is resilient to provider's failures
+[36m[2019-11-25 17:11:24 DEBUG] [configuration:36][39m Loading configuration...
+[36m[2019-11-25 17:11:24 DEBUG] [secret:74][39m Loading secrets...
+[36m[2019-11-25 17:11:24 DEBUG] [secret:89][39m Secrets loaded
+[36m[2019-11-25 17:11:24 DEBUG] [__init__:39][39m Initializing controls
+[36m[2019-11-25 17:11:24 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2019-11-25 17:11:24 INFO] [hypothesis:184][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-11-25 17:11:24 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2019-11-25 17:11:24 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:11:24 INFO] [activity:158][39m Probe: all-services-are-healthy
+[36m[2019-11-25 17:11:24 DEBUG] [python:36][39m Activity 'all-services-are-healthy' loaded from '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py'
+[36m[2019-11-25 17:11:24 DEBUG] [__init__:69][39m Using Kubernetes context: default
+[36m[2019-11-25 17:11:24 DEBUG] [probes:41][39m Found 0 failed and 0 not ready pods
+[36m[2019-11-25 17:11:24 DEBUG] [activity:176][39m   => succeeded with 'True'
+[36m[2019-11-25 17:11:24 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:11:24 DEBUG] [hypothesis:212][39m allowed tolerance is True
+[36m[2019-11-25 17:11:24 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:11:24 INFO] [activity:158][39m Probe: consumer-service-must-still-respond
+[36m[2019-11-25 17:11:24 DEBUG] [activity:176][39m   => succeeded with '{'status': 200, 'headers': {'Content-Length': '5', 'Content-Type': 'text/plain;charset=UTF-8'}, 'body': 'hello'}'
+[36m[2019-11-25 17:11:24 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:11:24 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2019-11-25 17:11:24 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2019-11-25 17:11:24 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2019-11-25 17:11:24 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[36m[2019-11-25 17:11:24 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:11:24 INFO] [activity:158][39m Action: terminate-pods
+[36m[2019-11-25 17:11:24 DEBUG] [python:36][39m Activity 'terminate-pods' loaded from '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/pod/actions.py'
+[36m[2019-11-25 17:11:24 DEBUG] [__init__:69][39m Using Kubernetes context: default
+[36m[2019-11-25 17:11:25 DEBUG] [actions:67][39m Found 2 pods labelled 'name=my-provider-app' in ns default
+[36m[2019-11-25 17:11:25 DEBUG] [actions:99][39m Picked pods 'my-provider-app-6b44dd9899-wlb7s' to be terminated
+[36m[2019-11-25 17:11:25 DEBUG] [activity:178][39m   => succeeded without any result value
+[36m[2019-11-25 17:11:25 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:11:25 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:11:25 INFO] [activity:158][39m Probe: consumer-service-must-still-respond
+[36m[2019-11-25 17:11:25 DEBUG] [activity:176][39m   => succeeded with '{'status': 200, 'headers': {'Content-Length': '5', 'Content-Type': 'text/plain;charset=UTF-8'}, 'body': 'hello'}'
+[36m[2019-11-25 17:11:25 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:11:25 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[32m[2019-11-25 17:11:25 INFO] [hypothesis:184][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-11-25 17:11:25 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2019-11-25 17:11:25 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:11:25 INFO] [activity:158][39m Probe: all-services-are-healthy
+[36m[2019-11-25 17:11:25 DEBUG] [python:36][39m Activity 'all-services-are-healthy' loaded from '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py'
+[36m[2019-11-25 17:11:25 DEBUG] [__init__:69][39m Using Kubernetes context: default
+[36m[2019-11-25 17:11:25 DEBUG] [probes:41][39m Found 0 failed and 1 not ready pods
+[36m[2019-11-25 17:11:25 DEBUG] [activity:230][39m Activity failed
+    Traceback (most recent call last):
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py", line 45, in all_microservices_healthy
+        raise ActivityFailed("the system is unhealthy")
+    chaoslib.exceptions.ActivityFailed: the system is unhealthy
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/activity.py", line 223, in run_activity
+        result = run_python_activity(activity, configuration, secrets)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 60, in run_python_activity
+        sys.exc_info()[2])
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaoslib/provider/python.py", line 55, in run_python_activity
+        return func(**arguments)
+      File "/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/probes.py", line 45, in all_microservices_healthy
+        raise ActivityFailed("the system is unhealthy")
+    chaoslib.exceptions.ActivityFailed: chaoslib.exceptions.ActivityFailed: the system is unhealthy
+[31m[2019-11-25 17:11:25 ERROR] [activity:184][39m   => failed: chaoslib.exceptions.ActivityFailed: the system is unhealthy
+[36m[2019-11-25 17:11:25 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[33m[2019-11-25 17:11:25 WARNING] [hypothesis:201][39m Probe terminated unexpectedly, so its tolerance could not be validated
+[36m[2019-11-25 17:11:25 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[2019-11-25 17:11:25 CRITICAL] [experiment:241] Steady state probe 'all-services-are-healthy' is not in the given tolerance so failing this experiment
+[32m[2019-11-25 17:11:25 INFO] [experiment:320][39m Let's rollback...
+[36m[2019-11-25 17:11:25 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2019-11-25 17:11:25 INFO] [rollback:25][39m No declared rollbacks, let's move on.
+[36m[2019-11-25 17:11:25 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2019-11-25 17:11:25 INFO] [experiment:270][39m Experiment ended with status: deviated
+[32m[2019-11-25 17:11:25 INFO] [experiment:274][39m The steady-state has deviated, a weakness may have been discovered
+[36m[2019-11-25 17:11:25 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2019-11-25 17:11:25 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2019-11-25 17:11:25 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2019-11-25 17:12:20 DEBUG] [cli:70][39m ###############################################################################
+[36m[2019-11-25 17:12:20 DEBUG] [cli:71][39m Running command 'run'
+[36m[2019-11-25 17:12:20 DEBUG] [cli:75][39m Using settings file '/Users/asotobu/.chaostoolkit/settings.yaml'
+[36m[2019-11-25 17:12:21 DEBUG] [settings:24][39m The Chaos Toolkit settings file could not be found at '/Users/asotobu/.chaostoolkit/settings.yaml'.
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2019-11-25 17:12:21 DEBUG] [caching:25][39m Building activity cache...
+[36m[2019-11-25 17:12:21 DEBUG] [caching:35][39m Cached 2 activities
+[32m[2019-11-25 17:12:21 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2019-11-25 17:12:21 DEBUG] [configuration:36][39m Loading configuration...
+[36m[2019-11-25 17:12:21 DEBUG] [secret:74][39m Loading secrets...
+[36m[2019-11-25 17:12:21 DEBUG] [secret:89][39m Secrets loaded
+[32m[2019-11-25 17:12:21 INFO] [experiment:100][39m Experiment looks valid
+[36m[2019-11-25 17:12:21 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2019-11-25 17:12:21 DEBUG] [caching:25][39m Building activity cache...
+[36m[2019-11-25 17:12:21 DEBUG] [caching:35][39m Cached 2 activities
+[32m[2019-11-25 17:12:21 INFO] [experiment:179][39m Running experiment: System is resilient to provider's failures
+[36m[2019-11-25 17:12:21 DEBUG] [configuration:36][39m Loading configuration...
+[36m[2019-11-25 17:12:21 DEBUG] [secret:74][39m Loading secrets...
+[36m[2019-11-25 17:12:21 DEBUG] [secret:89][39m Secrets loaded
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:39][39m Initializing controls
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2019-11-25 17:12:21 INFO] [hypothesis:184][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:12:21 INFO] [activity:158][39m Probe: consumer-service-must-still-respond
+[36m[2019-11-25 17:12:21 DEBUG] [activity:176][39m   => succeeded with '{'status': 200, 'headers': {'Content-Length': '5', 'Content-Type': 'text/plain;charset=UTF-8'}, 'body': 'hello'}'
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:12:21 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2019-11-25 17:12:21 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:12:21 INFO] [activity:158][39m Action: terminate-pods
+[36m[2019-11-25 17:12:21 DEBUG] [python:36][39m Activity 'terminate-pods' loaded from '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/pod/actions.py'
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:69][39m Using Kubernetes context: default
+[36m[2019-11-25 17:12:21 DEBUG] [actions:67][39m Found 2 pods labelled 'name=my-provider-app' in ns default
+[36m[2019-11-25 17:12:21 DEBUG] [actions:99][39m Picked pods 'my-provider-app-6b44dd9899-l8p9b' to be terminated
+[36m[2019-11-25 17:12:21 DEBUG] [activity:178][39m   => succeeded without any result value
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:12:21 INFO] [activity:158][39m Probe: consumer-service-must-still-respond
+[36m[2019-11-25 17:12:21 DEBUG] [activity:176][39m   => succeeded with '{'status': 200, 'headers': {'Content-Length': '5', 'Content-Type': 'text/plain;charset=UTF-8'}, 'body': 'hello'}'
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[32m[2019-11-25 17:12:21 INFO] [hypothesis:184][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:12:21 INFO] [activity:158][39m Probe: consumer-service-must-still-respond
+[36m[2019-11-25 17:12:21 DEBUG] [activity:176][39m   => succeeded with '{'status': 200, 'headers': {'Content-Length': '5', 'Content-Type': 'text/plain;charset=UTF-8'}, 'body': 'hello'}'
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:12:21 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2019-11-25 17:12:21 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[32m[2019-11-25 17:12:21 INFO] [experiment:320][39m Let's rollback...
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2019-11-25 17:12:21 INFO] [rollback:25][39m No declared rollbacks, let's move on.
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2019-11-25 17:12:21 INFO] [experiment:270][39m Experiment ended with status: completed
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2019-11-25 17:12:21 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2019-11-25 17:12:21 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2019-11-25 17:13:37 DEBUG] [cli:70][39m ###############################################################################
+[36m[2019-11-25 17:13:37 DEBUG] [cli:71][39m Running command 'run'
+[36m[2019-11-25 17:13:37 DEBUG] [cli:75][39m Using settings file '/Users/asotobu/.chaostoolkit/settings.yaml'
+[36m[2019-11-25 17:13:38 DEBUG] [settings:24][39m The Chaos Toolkit settings file could not be found at '/Users/asotobu/.chaostoolkit/settings.yaml'.
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'loader'
+[36m[2019-11-25 17:13:38 DEBUG] [caching:25][39m Building activity cache...
+[36m[2019-11-25 17:13:38 DEBUG] [caching:35][39m Cached 2 activities
+[32m[2019-11-25 17:13:38 INFO] [experiment:54][39m Validating the experiment's syntax
+[36m[2019-11-25 17:13:38 DEBUG] [configuration:36][39m Loading configuration...
+[36m[2019-11-25 17:13:38 DEBUG] [secret:74][39m Loading secrets...
+[36m[2019-11-25 17:13:38 DEBUG] [secret:89][39m Secrets loaded
+[32m[2019-11-25 17:13:38 INFO] [experiment:100][39m Experiment looks valid
+[36m[2019-11-25 17:13:38 DEBUG] [caching:42][39m Clearing activities cache
+[36m[2019-11-25 17:13:38 DEBUG] [caching:25][39m Building activity cache...
+[36m[2019-11-25 17:13:38 DEBUG] [caching:35][39m Cached 2 activities
+[32m[2019-11-25 17:13:38 INFO] [experiment:179][39m Running experiment: System is resilient to provider's failures
+[36m[2019-11-25 17:13:38 DEBUG] [configuration:36][39m Loading configuration...
+[36m[2019-11-25 17:13:38 DEBUG] [secret:74][39m Loading secrets...
+[36m[2019-11-25 17:13:38 DEBUG] [secret:89][39m Secrets loaded
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:39][39m Initializing controls
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[32m[2019-11-25 17:13:38 INFO] [hypothesis:184][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:13:38 INFO] [activity:158][39m Probe: consumer-service-must-still-respond
+[36m[2019-11-25 17:13:38 DEBUG] [activity:176][39m   => succeeded with '{'status': 200, 'headers': {'Content-Length': '5', 'Content-Type': 'text/plain;charset=UTF-8'}, 'body': 'hello'}'
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:13:38 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[32m[2019-11-25 17:13:38 INFO] [hypothesis:222][39m Steady state hypothesis is met!
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:13:38 INFO] [activity:158][39m Action: terminate-pods
+[36m[2019-11-25 17:13:38 DEBUG] [python:36][39m Activity 'terminate-pods' loaded from '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/chaosk8s/pod/actions.py'
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:69][39m Using Kubernetes context: default
+[36m[2019-11-25 17:13:38 DEBUG] [actions:67][39m Found 1 pods labelled 'name=my-provider-app' in ns default
+[36m[2019-11-25 17:13:38 DEBUG] [actions:99][39m Picked pods 'my-provider-app-6b44dd9899-749pl' to be terminated
+[36m[2019-11-25 17:13:38 DEBUG] [activity:178][39m   => succeeded without any result value
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:13:38 INFO] [activity:158][39m Probe: consumer-service-must-still-respond
+[36m[2019-11-25 17:13:38 DEBUG] [activity:176][39m   => succeeded with '{'status': 200, 'headers': {'Content-Length': '5', 'Content-Type': 'text/plain;charset=UTF-8'}, 'body': 'hello'}'
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'method'
+[32m[2019-11-25 17:13:38 INFO] [hypothesis:184][39m Steady state hypothesis: Services are all available and healthy
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[32m[2019-11-25 17:13:38 INFO] [activity:158][39m Probe: consumer-service-must-still-respond
+[36m[2019-11-25 17:13:38 DEBUG] [activity:176][39m   => succeeded with '{'status': 500, 'headers': {'content-type': 'text/html; charset=utf-8', 'content-length': '2954'}, 'body': '<!doctype html>\n<html lang="en">\n<head>\n    <title>Internal Server Error - Error id 66b40569-038a-4e6a-895d-8c68727443e7-2</title>\n    <meta charset="utf-8">\n    <style>\nhtml, body {\n    margin: 0;\n    padding: 0;\n    font-family: \'Open Sans\', Helvetica, Arial, sans-serif;\n    font-size: 100%;\n    font-weight: 100;\n    line-height: 1.4;\n}\n\nhtml {\n    overflow-y: scroll;\n}\n\nbody {\n    background: #f9f9f9;\n}\n.container {\n    width: 80%;\n    margin: 0 auto;\n}\n.content {\n    padding: 1em 0 1em 0;\n}\n\nheader, .component-name {\n    background-color: #ad1c1c;\n}\n\nul {\n    line-height: 1.5rem;\n    margin: 0.25em 0 0.25em 0;\n}\n\n.exception-message {\n    background: #be2828;\n}\n\nh1, h2 {\n    margin: 0;\n    padding: 0;\n}\n\nh1 {\n    font-size: 2rem;\n    color: #fff;\n    line-height: 3.75rem;\n    font-weight: 700;\n    padding: 0.4rem 0rem 0.4rem 0rem;\n}\n\nh2 {\n    font-size: 1.2rem;\n    color: rgba(255, 255, 255, 0.85);\n    line-height: 2.5rem;\n    font-weight: 400;\n    padding: 0.4rem 0rem 0.4rem 0rem;\n}\n\n.intro {    font-size: 1.2rem;\n    font-weight: 400;\n    margin: 0.25em 0 1em 0;\n}\nh3 {\n    font-size: 1.2rem;\n    line-height: 2.5rem;\n    font-weight: 400;\n    color: #555;\n    margin: 0.25em 0 0.25em 0;\n}\n\n.trace, .resources {\n    background: #fff;\n    padding: 15px;\n    margin: 15px auto;\n    border: 1px solid #ececec;\n}\n.trace {\n    overflow-y: scroll;\n}\n.hidden {\n   display: none;\n}\n\npre {\n    white-space: pre;\n    font-family: Consolas, Monaco, Menlo, "Ubuntu Mono", "Liberation Mono", monospace;\n    font-size: 12px;\n    line-height: 1.5;\n    color: #555;\n}\n</style>\n<script>\n\tfunction toggleStackTraceOrder() {\n\t\tvar stElement = document.getElementById(\'stacktrace\');\n\t\tvar current = stElement.getAttribute(\'data-current-setting\');\n\t\tif (current == \'original-stacktrace\') {\n\t\t\tvar reverseOrder = document.getElementById(\'reversed-stacktrace\');\n\t\t\tstElement.innerHTML = reverseOrder.innerHTML;\n\t\t\tstElement.setAttribute(\'data-current-setting\', \'reversed-stacktrace\');\n\t\t} else {\n\t\t\tvar originalOrder = document.getElementById(\'original-stacktrace\');\n\t\t\tstElement.innerHTML = originalOrder.innerHTML;\n\t\t\tstElement.setAttribute(\'data-current-setting\', \'original-stacktrace\');\n\t\t}\n\t\treturn;\n\t}\n\tfunction showDefaultStackTraceOrder() {\n\t\tvar reverseOrder = document.getElementById(\'reversed-stacktrace\');\n\t\tvar stElement = document.getElementById(\'stacktrace\');\n       if (reverseOrder == null || stElement == null) {\n           return;\n       }\n\t\t// default to reverse ordered stacktrace\n\t\tstElement.innerHTML = reverseOrder.innerHTML;\n\t\tstElement.setAttribute(\'data-current-setting\', \'reversed-stacktrace\');\n\t\treturn;\n\t}\n</script>\n</head>\n<body  onload="showDefaultStackTraceOrder()">\n<header>\n    <h1 class="container">Internal Server Error</h1>\n    <div class="exception-message">\n        <h2 class="container">Error id 66b40569-038a-4e6a-895d-8c68727443e7-2</h2>\n    </div>\n</header>\n<div class="container content">\n</div></body>\n</html>\n'}'
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'activity'
+[36m[2019-11-25 17:13:38 DEBUG] [hypothesis:212][39m allowed tolerance is 200
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'hypothesis'
+[2019-11-25 17:13:38 CRITICAL] [experiment:241] Steady state probe 'consumer-service-must-still-respond' is not in the given tolerance so failing this experiment
+[32m[2019-11-25 17:13:38 INFO] [experiment:320][39m Let's rollback...
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2019-11-25 17:13:38 INFO] [rollback:25][39m No declared rollbacks, let's move on.
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'rollback'
+[32m[2019-11-25 17:13:38 INFO] [experiment:270][39m Experiment ended with status: deviated
+[32m[2019-11-25 17:13:38 INFO] [experiment:274][39m The steady-state has deviated, a weakness may have been discovered
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:355][39m No controls to apply on 'experiment'
+[36m[2019-11-25 17:13:38 DEBUG] [__init__:72][39m Cleaning up controls
+[36m[2019-11-25 17:13:38 DEBUG] [caching:42][39m Clearing activities cache
