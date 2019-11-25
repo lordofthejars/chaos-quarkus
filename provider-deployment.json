@@ -1,0 +1,53 @@
+{
+    "apiVersion" : "apps/v1beta1",
+    "kind" : "Deployment",
+    "metadata" : {
+      "name" : "my-provider-app"
+    },
+    "spec" : {
+      "replicas" : 1,
+      "selector" : {
+        "matchLabels" : {
+          "service" : "my-provider-service"
+        }
+      },
+      "template" : {
+        "metadata" : {
+          "name" : "my-provider-app",
+          "labels" : {
+            "app" : "my-provider-app",
+            "service" : "my-provider-service"
+          }
+        },
+        "spec" : {
+          "containers" : [ {
+            "name" : "my-provider-app",
+            "ports" : [ {
+              "name" : "http",
+              "containerPort" : 8080,
+              "protocol" : "TCP"
+            } ],
+            "imagePullPolicy" : "Always",
+            "image" : "lordofthejars/provider:1.0.0",
+            "resources" : {
+              "limits" : {
+                "cpu" : 0.4,
+                "memory" : "256Mi"
+              },
+              "requests" : {
+                "cpu" : 0.2,
+                "memory" : "256Mi"
+              }
+            }
+          } ]
+        }
+      },
+      "strategy" : {
+        "type" : "RollingUpdate",
+        "rollingUpdate" : {
+          "maxUnavailable" : 1,
+          "maxSurge" : 1
+        }
+      }
+    }
+  }

@@ -1,0 +1,56 @@
+{
+    "version": "1.0.0",
+    "title": "System is resilient to provider's failures",
+    "description": "Can our consumer survive gracefully a provider's failure?",
+    "tags": [
+        "service",
+        "kubernetes",
+        "quarkus"
+    ],
+    "steady-state-hypothesis": {
+        "title": "Services are all available and healthy",
+        "probes": [
+            {
+                "type": "probe",
+                "name": "all-services-are-healthy",
+                "tolerance": true,
+                "provider": {
+                    "type": "python",
+                    "module": "chaosk8s.probes",
+                    "func": "all_microservices_healthy"
+                }
+            },
+            {
+                "type": "probe",
+                "name": "consumer-service-must-still-respond",
+                "tolerance": 200,
+                "provider": {
+                    "type": "http",
+                    "url": "http://192.168.39.7:31546/hello"
+                }
+            }
+        ]
+    },
+    "method": [
+        {
+            "type": "action",
+            "name": "terminate-pods",
+            "provider": {
+                "type": "python",
+                "module": "chaosk8s.pod.actions",
+                "func": "terminate_pods",
+                "arguments": {
+                    "label_selector": "app=my-provider-app"
+                }
+            },
+            "pauses": {
+                "after": 15
+            }
+        },
+        {
+            "type": "probe",
+            "ref": "all-services-are-healthy"
+        }
+    ],
+    "rollbacks": []
+}
