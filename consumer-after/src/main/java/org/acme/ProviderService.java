@@ -19,7 +19,7 @@ public interface ProviderService {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    @Retry(maxRetries = 2, delay = 500, delayUnit = ChronoUnit.MILLIS)
+    @Retry(maxRetries = 10, delay = 500, delayUnit = ChronoUnit.MILLIS)
     @Fallback(DefaultMessage.class)
     String getProviderMessage();
 
