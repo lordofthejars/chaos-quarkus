@@ -28,7 +28,7 @@
               "protocol" : "TCP"
             } ],
             "imagePullPolicy" : "Always",
-            "image" : "lordofthejars/consumer-after:1.0.0",
+            "image" : "lordofthejars/consumer-after:1.0.1",
             "resources" : {
               "limits" : {
                 "cpu" : 0.4,
