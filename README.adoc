@@ -1,1 +1,42 @@
-minikube service my-consumer-service --url
+= Install
+
+== Install Minikube
+
+Install Minikue with Kubernetes v1.15.6. 
+At the time of writting this document v1.16 is not supported by Chaos Toolkit.
+
+[source, shell-session]
+----
+minikube config set kubernetes-version v1.15.6
+minikube start --memory=4096 --cpus=2 --vm-driver=hyperkit
+----
+
+== Install Chaos Toolkit
+
+With `Python3` and `Pip3` installed.
+
+[source, shell-session]
+----
+pip install chaostoolkit
+pip install chaostoolkit-kubernetes
+----
+
+== Deploy Application
+
+[source, shell-session]
+----
+kubectl create -f provider-service.json
+kubectl create -f consumer-service.json
+
+kubectl apply -f provider-deployment.json
+kubectl apply -f consumer-before-deployment.json
+----
+
+== Run Chaos
+
+First you need to update the IP/Port of the experiments by running `minikube service my-consumer-service --url` and then opening `experiment-pod-termination.json` and `experiment-kill-deployment.json` and changing `url` field to required IP and port.
+
+[source, shell-session]
+----
+chaos run experiment-pod-termination.json
+----
